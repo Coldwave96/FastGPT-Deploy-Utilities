@@ -10,7 +10,7 @@ services:
     networks:
       - llm
     environment:
-      - SK_KEY=sk-abcdefghijkabcdefghijkabcdefghijk # 设置模型接口认证Token
+      - SK-KEY=sk-abcdefghijkabcdefghijkabcdefghijk # 设置模型接口认证Token
       - QUANTIZE_BIT=16 # 设置模型量化程度（16/8/4）
     deploy:
       resources:
@@ -28,7 +28,7 @@ services:
     networks:
       - llm
     environment:
-      - SK_KEY=sk-abcdefghijkabcdefghijkabcdefghijk # 设置模型接口认证Token
+      - SK-KEY=sk-abcdefghijkabcdefghijkabcdefghijk # 设置模型接口认证Token
     deploy:
       resources:
         reservations:
