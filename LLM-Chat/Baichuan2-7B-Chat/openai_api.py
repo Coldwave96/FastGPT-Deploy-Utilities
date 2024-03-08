@@ -147,7 +147,7 @@ async def list_models():
 
 
 @app.post("/v1/chat/completions", response_model=ChatCompletionResponse)
-async def create_chat_completion(request: ChatCompletionRequest, token: bool = Depends()):
+async def create_chat_completion(request: ChatCompletionRequest, token: bool = Depends(verify_token)):
     global model, tokenizer
     if request.messages[-1].role != "user":
         raise HTTPException(status_code=400, detail="Invalid request")

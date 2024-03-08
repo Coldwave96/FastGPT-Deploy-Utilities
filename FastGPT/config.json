@@ -7,7 +7,7 @@
   },
   "llmModels": [
     {
-      "model": "Baichuan2-13B-Chat-int8", //修改为本地部署的问答大模型信息
+      "model": "Baichuan2-13B-Chat", //修改为本地部署的问答大模型信息
       "name": "Baichuan2-13B-Chat",
       "maxContext": 16000,
       "maxResponse": 4000,
@@ -17,7 +17,7 @@
       "outputPrice": 0,
       "censor": false,
       "vision": false,
-      "datasetProcess": true,
+      "datasetProcess": true, //该大模型同时用于文件处理，模型列表中只需要一处为true
       "toolChoice": true,
       "functionCall": false,
       "customCQPrompt": "",
