@@ -9,7 +9,7 @@ ADD . /app
 
 RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 # 安装程序需要的包
-RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 运行时监听的端口
 EXPOSE 8002

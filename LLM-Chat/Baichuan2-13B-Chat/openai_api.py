@@ -218,8 +218,8 @@ async def predict(messages: List[List[str]], model_id: str):
 
 def load_models():
     print("本次加载的大语言模型为: Baichuan-13B-Chat")
-    tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-13B-Chat", use_fast=False, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan2-13B-Chat", torch_dtype=torch.float16, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("baichuan-inc/Baichuan2-13B-Chat", use_fast=False, device_map="auto", trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained("baichuan-inc/Baichuan2-13B-Chat", torch_dtype=torch.float16, device_map="auto", trust_remote_code=True)
     
     match quantize_bit:
         case 4:
