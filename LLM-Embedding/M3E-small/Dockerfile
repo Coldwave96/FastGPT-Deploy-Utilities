@@ -16,9 +16,9 @@ EXPOSE 8002
 
 # 设置默认运行参数
 # SK_KEY 接口调用认证Token
-# QUANTIZE_BIT 模型量化级别（4/8/16）
+# 设置 uvicorn 参数 workers 的数量
 ENV SK_KEY sk-abcdefghijkabcdefghijkabcdefghijk
-ENV QUANTIZE_BIT 16
+ENV NUM_WORKERS 1
 
 # 运行容器时的命令及其参数
 CMD ["python", "openai_api.py"]
