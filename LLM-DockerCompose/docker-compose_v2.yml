@@ -21,7 +21,7 @@ services:
               device_ids: ['0', '1'] # 指定模型使用的GPU设备序号
               capabilities: [gpu]
   m3e:
-    image: registry.cn-hangzhou.aliyuncs.com/coldsnap/m3e-large.openai-api:v1
+    image: registry.cn-hangzhou.aliyuncs.com/coldsnap/m3e-large.openai-api:v2
     container_name: m3e
     restart: always
     ports:
