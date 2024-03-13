@@ -27,8 +27,9 @@ async def lifespan(app: FastAPI):  # collects GPU memory
         torch.cuda.ipc_collect()
 
 #环境变量传入
-sk_key = os.environ.get('SK-KEY', 'sk-aaabbbcccdddeeefffggghhhiiijjjkkk')
+sk_key = os.environ.get('SK_KEY', 'sk-aaabbbcccdddeeefffggghhhiiijjjkkk')
 quantize_bit = os.environ.get('QUANTIZE_BIT', 16)
+num_workers = os.environ.get('NUM_WORKERS', 1)
 
 app = FastAPI(lifespan=lifespan)
 
@@ -257,4 +258,4 @@ if __name__ == "__main__":
     model = AutoModel.from_pretrained(model_name, device_map='auto', trust_remote_code=True).cuda()
     embeddings_model = SentenceTransformer('moka-ai/m3e-large', device='cpu')
 
-    uvicorn.run(app, host='0.0.0.0', port=8001, workers=1)
+    uvicorn.run(app, host='0.0.0.0', port=8001, workers=num_workers)

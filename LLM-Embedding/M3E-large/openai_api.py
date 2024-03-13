@@ -13,7 +13,8 @@ import torch
 import os
 
 #环境变量传入
-sk_key = os.environ.get('SK-KEY', 'sk-aaabbbcccdddeeefffggghhhiiijjjkkk')
+sk_key = os.environ.get('SK_KEY', 'sk-aaabbbcccdddeeefffggghhhiiijjjkkk')
+num_workers = os.environ.get('NUM_WORKERS', 1)
 
 # 创建一个FastAPI实例
 app = FastAPI()
@@ -116,4 +117,4 @@ async def get_embeddings(request: EmbeddingRequest, credentials: HTTPAuthorizati
     return response
 
 if __name__ == "__main__":
-    uvicorn.run(app, host='0.0.0.0', port=8002, workers=1)
+    uvicorn.run(app, host='0.0.0.0', port=8002, workers=num_workers)
